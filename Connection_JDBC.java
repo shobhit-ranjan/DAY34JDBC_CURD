@@ -29,10 +29,8 @@ public class Connection_JDBC {
 					String name = resultSet.getString(2);
 					Integer salary = resultSet.getInt(3);
 					String date = resultSet.getString(4);
-					String sal = resultSet.getString(4);
-					String row = String.format(
-							"User record: \n Id: %d, \n Name: %s,\n Salary: %d, \n Date: %s, \n Sal: %s ", id, name,
-							salary, date, sal);
+					String row = String.format("User record: \n Id: %d, \n Name: %s,\n Salary: %d, \n", id, name,
+							salary, date);
 					System.out.println(row);
 				}
 			}
@@ -50,7 +48,6 @@ public class Connection_JDBC {
 		}
 
 	}
-
 
 	private static void writeempData() {
 		Connection conn = getsqlConnection();
@@ -83,11 +80,12 @@ public class Connection_JDBC {
 			}
 		}
 	}
+
 	private static Connection getsqlConnection() {
 		Connection conn = null;
 		String hostUrl = "jdbc:mysql://localhost:3306/payroll_services";
 		String userName = "root";
-		String password = "mymaths00";
+		String password = "mymaths009";
 		try {
 			conn = DriverManager.getConnection(hostUrl, userName, password);
 		} catch (SQLException e) {
@@ -97,6 +95,5 @@ public class Connection_JDBC {
 		return conn;
 
 	}
-
 
 }
