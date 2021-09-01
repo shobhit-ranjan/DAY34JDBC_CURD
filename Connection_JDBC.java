@@ -9,8 +9,9 @@ public class Connection_JDBC {
 
 	public static void main(String[] args) {
 		getsqlConnection();
-		readEmployeePayroll();
+		//readEmployeePayroll();
 		//writeempData();
+		 updateEmployeePay();
 
 	}
 
@@ -80,6 +81,36 @@ public class Connection_JDBC {
 			}
 		}
 	}
+	
+	private static void updateEmployeePay() {
+		System.out.println("we have update / change the salary of shobhit");
+		Connection conn = getsqlConnection();
+		if (conn != null) {
+			String updateEmpPayroll = "UPDATE employee_payrollday34 SET empsalary = ? WHERE empname ='Shobhit'";
+			try {
+				PreparedStatement preparedStatement = conn.prepareStatement(updateEmpPayroll);
+				preparedStatement.setInt(1,22050);
+				int rowUpdated = preparedStatement.executeUpdate();
+				if (rowUpdated > 0) {
+					System.out.println("Updated !!");
+				}
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			} finally {
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException sqlException) {
+						System.out.println(sqlException.getMessage());
+
+					}
+				}
+			}
+		}
+
+	}
+
 
 	private static Connection getsqlConnection() {
 		Connection conn = null;
