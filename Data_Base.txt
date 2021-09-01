@@ -25,6 +25,6 @@ mysql> describe employee_payrollday34;
 | dateofjoin | varchar(40) | YES  |     | NULL    |       |
 | gender     | varchar(30) | YES  |     | NULL    |       |
 +------------+-------------+------+-----+---------+-------+
-5 rows in set (0.01 sec)
+5 rows in set  (0.01 sec)
 
 mysql>
