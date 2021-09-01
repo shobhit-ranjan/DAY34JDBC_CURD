@@ -1,0 +1,30 @@
+UC ONE
+
+mysql> select * from employee_payroll34;
+mysql> show tables;
++----------------------------+
+| Tables_in_payroll_services |
++----------------------------+
+| employee_payroll           |
+| employee_payrollday32      |
+| employee_payrollday34      |
++----------------------------+
+3 rows in set (0.00 sec)
+
+ERROR 1146 (42S02): Table 'payroll_services.employee_payroll34' doesn't exist
+mysql> select * from employee_payrollday34;
+Empty set (0.00 sec)
+
+mysql> describe employee_payrollday34;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| empid      | int         | YES  |     | NULL    |       |
+| empname    | varchar(80) | YES  |     | NULL    |       |
+| empsalary  | int         | YES  |     | NULL    |       |
+| dateofjoin | varchar(40) | YES  |     | NULL    |       |
+| gender     | varchar(30) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql>
