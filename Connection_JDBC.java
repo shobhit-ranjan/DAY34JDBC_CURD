@@ -9,8 +9,8 @@ public class Connection_JDBC {
 
 	public static void main(String[] args) {
 		getsqlConnection();
-		// readEmployeePayroll();
-		writeempData();
+		readEmployeePayroll();
+		//writeempData();
 
 	}
 
@@ -57,10 +57,10 @@ public class Connection_JDBC {
 				String sqlInsert = "INSERT INTO employee_payrollday34 (empid ,empname ,empsalary, dateofjoin ,gender) values (?,?,?,?,?)";
 				PreparedStatement connecting = conn.prepareStatement(sqlInsert);
 				connecting.setInt(1, 001);
-				connecting.setString(2, "Shobhit");
-				connecting.setInt(3, 5000);
-				connecting.setString(4, "01-01-2015");
-				connecting.setString(5, "Male");
+				connecting.setString(2, "JKL");
+				connecting.setInt(3, 9865);
+				connecting.setString(4, "30-12-2015");
+				connecting.setString(5, "Female");
 
 				int rowInserted = connecting.executeUpdate();
 				if (rowInserted > 0) {
@@ -85,7 +85,7 @@ public class Connection_JDBC {
 		Connection conn = null;
 		String hostUrl = "jdbc:mysql://localhost:3306/payroll_services";
 		String userName = "root";
-		String password = "mymaths009";
+		String password = "mymaths00";
 		try {
 			conn = DriverManager.getConnection(hostUrl, userName, password);
 		} catch (SQLException e) {
