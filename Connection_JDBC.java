@@ -14,6 +14,7 @@ public class Connection_JDBC {
 		// updateEmployeePay();
 		//showPAyRollBYEMPNAME();
 		showEmployeesbtweenDate();
+		findingAlldetails();
 
 	}
 
@@ -181,6 +182,43 @@ public class Connection_JDBC {
 			}
 		}
 
+	}
+	private static void findingAlldetails() {
+		System.out.println("Displaying all values ");
+		Connection conn = getsqlConnection();
+
+		try {
+			if (conn != null) {
+				String readEmpPayroll = "SELECT min(empsalary), max(empsalary),sum(empsalary),avg(empsalary),count(empsalary) FROM employee_payroll WHERE Gender = 'Male' group by Gender";
+
+				Statement statement = conn.createStatement();
+				ResultSet resultSet = statement.executeQuery(readEmpPayroll);
+				while (resultSet.next()) {
+
+					int minSalary = resultSet.getInt(1);
+					int maxSalary = resultSet.getInt(2);
+					int sumSalary = resultSet.getInt(3);
+					int avgSalary = resultSet.getInt(4);
+					int countSalary = resultSet.getInt(5);
+
+					String row = String.format(
+							"User record: \n Min: %d, \n Max: %d,\n Sum: %d,\n Avg: %d,\n Count: %d,",
+							minSalary, maxSalary, sumSalary, avgSalary, countSalary);
+					System.out.println(row);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException sqlException) {
+					System.out.println(sqlException.getMessage());
+
+				}
+			}
+		}
 	}
 
 	private static Connection getsqlConnection() {

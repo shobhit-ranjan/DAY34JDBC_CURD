@@ -98,3 +98,15 @@ mysql> select * from employee_payroll;
 +-------+----------------+-----------+------------+------------+--------+
 5 rows in set (0.01 sec)
 
+
+
+
+Displaying employees joined between given dates
+Displaying all values 
+User record: 
+ Min: 1300, 
+ Max: 76000,
+ Sum: 89600,
+ Avg: 29866,
+ Count: 3,
+
