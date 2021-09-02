@@ -9,10 +9,10 @@ public class Connection_JDBC {
 
 	public static void main(String[] args) {
 		getsqlConnection();
-		 readEmployeePayroll();
-		 writeempData();
-		 updateEmployeePay();
-		showPAyRollBYEMPNAME();
+		// readEmployeePayroll();
+		// writeempData();
+		// updateEmployeePay();
+		//showPAyRollBYEMPNAME();
 		showEmployeesbtweenDate();
 		findingAlldetails();
 
@@ -189,7 +189,7 @@ public class Connection_JDBC {
 
 		try {
 			if (conn != null) {
-				String readEmpPayroll = "SELECT min(empsalary), max(empsalary),sum(empsalary),avg(empsalary),count(empsalary) FROM employee_payroll WHERE Gender = 'Male' group by Gender";
+				String readEmpPayroll = "SELECT min(empsalary), max(empsalary),sum(empsalary),avg(empsalary),count(empsalary) FROM employee_payroll WHERE Gender = 'Male'";
 
 				Statement statement = conn.createStatement();
 				ResultSet resultSet = statement.executeQuery(readEmpPayroll);
