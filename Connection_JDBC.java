@@ -9,10 +9,10 @@ public class Connection_JDBC {
 
 	public static void main(String[] args) {
 		getsqlConnection();
-		// readEmployeePayroll();
-		// writeempData();
-		// updateEmployeePay();
-		//showPAyRollBYEMPNAME();
+		 readEmployeePayroll();
+		 writeempData();
+		 updateEmployeePay();
+		showPAyRollBYEMPNAME();
 		showEmployeesbtweenDate();
 		findingAlldetails();
 
