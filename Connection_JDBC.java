@@ -12,7 +12,8 @@ public class Connection_JDBC {
 		// readEmployeePayroll();
 		// writeempData();
 		// updateEmployeePay();
-		showPAyRollBYEMPNAME();
+		//showPAyRollBYEMPNAME();
+		showEmployeesbtweenDate();
 
 	}
 
@@ -93,7 +94,7 @@ public class Connection_JDBC {
 				preparedStatement.setInt(1, 22050);
 				int rowUpdated = preparedStatement.executeUpdate();
 				if (rowUpdated > 0) {
-					System.out.println("Updated !!");
+					System.out.println("Update");
 				}
 			} catch (SQLException e) {
 
@@ -132,6 +133,38 @@ public class Connection_JDBC {
 					String row = String.format(
 							"User record: \n Id: %d, \n Name: %s,\n Salary: %d, \n Date: %s,  \n Gender: %s \n", id,
 							name, salary, date, gender);
+					System.out.println(row);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException sqlException) {
+					System.out.println(sqlException.getMessage());
+
+				}
+			}
+		}
+
+	}
+	private static void showEmployeesbtweenDate() {
+		System.out.println("Displaying employees joined between given dates");
+		Connection conn = getsqlConnection();
+
+		try {
+			if (conn != null) {
+				String readEmpPayroll = "SELECT empname FROM employee_payroll WHERE dateofjoin between '2022-11-01' and '2012-01-01'";
+
+				Statement statement = conn.createStatement();
+				ResultSet resultSet = statement.executeQuery(readEmpPayroll);
+				while (resultSet.next()) {
+
+					String name = resultSet.getString(1);
+
+					String row = String.format("User record: \n Name: %s", name);
 					System.out.println(row);
 				}
 			}
